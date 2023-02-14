@@ -1,19 +1,16 @@
 import 'dart:async';
 
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/gridwthstack.dart';
-import 'package:flutter_application_1/stack.dart';
-import 'package:device_preview/device_preview.dart';
-import 'package:flutter_application_1/standegrdview.dart';
-
+import 'package:flutter_application_2/loging.dart';
+import 'package:flutter_application_2/lotii.dart';
+import 'package:flutter_application_2/tabb.dart';
 
 
 void main() {
-  runApp(DevicePreview(builder: ((context) => MaterialApp(home: Screen(),
-  useInheritedMediaQuery: true,
-  locale: DevicePreview.locale(context),
-  builder: DevicePreview.appBuilder))));
+  runApp(MaterialApp(
+    debugShowCheckedModeBanner: false,
+    home: Screen(),
+  ));
 }
 
 class Screen extends StatefulWidget {
@@ -26,7 +23,7 @@ class _SreenState extends State<Screen> {
   void initState() {
     Timer(Duration(seconds: 3), () {
       Navigator.of(context)
-          .pushReplacement(MaterialPageRoute(builder: (context) => standeredview()));
+          .pushReplacement(MaterialPageRoute(builder: (context) => lgnpage()));
     });
   }
 
@@ -38,15 +35,16 @@ class _SreenState extends State<Screen> {
         decoration: const BoxDecoration(
             image: DecorationImage(
                 fit: BoxFit.fill,
-                image: AssetImage(""))),
+                image: AssetImage("https://images.unsplash.com/photo-1553095066-5014bc7b7f2d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8d2FsbCUyMGJhY2tncm91bmR8ZW58MHx8MHx8&w=1000&q=80"))),
         child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: const [
-              Image(image: AssetImage(""))
+              //Image(image: AssetImage("assets/icons/icon Fb.png"))
             ],
           ),
         ),
       ),
     );
-  }}
+  }
+}
