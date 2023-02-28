@@ -21,13 +21,19 @@ void main() {
   );
 }
 
-class Fresh extends StatelessWidget {
+class Fresh extends StatefulWidget {
+  @override
+  State<Fresh> createState() => _FreshState();
+}
+
+class _FreshState extends State<Fresh> {
   var items = [
     "VEGETABLE",
     "FRUITS",
     "EXOTIC",
     "FRESH CUTS",
   ];
+  int index = 0;
   var item2 = [
     "Vegetables",
     "Fruits",
@@ -41,6 +47,7 @@ class Fresh extends StatelessWidget {
     "https://images.unsplash.com/photo-1573246123716-6b1782bfc499?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTV8fGZydWl0c3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
     "https://media.istockphoto.com/id/1098289506/photo/organic-farmer-stock-image.jpg?s=612x612&w=0&k=20&c=-nW8M4fNOBcIkMNfn7RtDYTVuhDxUypnr6WMoV1xDiw="
   ];
+
   var img2 = [
     "https://media.istockphoto.com/id/606211940/photo/fresh-vegetables-in-rajasthan-india-market.jpg?s=612x612&w=0&k=20&c=4baeg4ku3OTOVknFd6XavIGGP7NUHnvObwaOWZ6MsFQ=",
     "https://media.istockphoto.com/id/529664572/photo/fruit-background.jpg?s=612x612&w=0&k=20&c=K7V0rVCGj8tvluXDqxJgu0AdMKF8axP0A15P-8Ksh3I=",
@@ -49,8 +56,6 @@ class Fresh extends StatelessWidget {
     "https://media.istockphoto.com/id/1213016352/photo/healthy-food-diagram.jpg?s=612x612&w=0&k=20&c=sugz1d-jGE7gxm4DSrU--lX0OSVvnoc04JyEyYvrPlY=",
     "https://media.istockphoto.com/id/1077555204/photo/spices-and-kitchen-herbs-in-the-store.jpg?s=612x612&w=0&k=20&c=PcAT7aF9rQtiVw9GtjCAU066SD0dTWCmtVdRyz9zGuE="
   ];
-
-  get index => null;
 
   @override
   Widget build(BuildContext context) {
@@ -68,7 +73,7 @@ class Fresh extends StatelessWidget {
           BottomNavigationBarItem(
               icon: Icon(Icons.account_box_sharp), label: 'Account'),
           BottomNavigationBarItem(
-              icon: Icon(Icons.search_rounded), label: "menu"),
+              icon: Icon(Icons.shopping_cart), label: "Cart"),
         ],
       ),
       body: CustomScrollView(
@@ -195,17 +200,17 @@ class Fresh extends StatelessWidget {
           ])),
           SliverList(
               delegate: SliverChildListDelegate([
-            Container(
-              height: 30,
+            Padding(
+              padding: const EdgeInsets.only(top: 20),
               child: Text(
                 "Shop By Category",
-                style: TextStyle(fontWeight: FontWeight.w100, fontSize: 20),
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25),
               ),
             ),
             Padding(
               padding: const EdgeInsets.only(bottom: 100),
               child: Container(
-                height: 300,
+                height: 350,
                 child: GridView.custom(
                     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 3,
@@ -243,4 +248,3 @@ class Fresh extends StatelessWidget {
     );
   }
 }
-
