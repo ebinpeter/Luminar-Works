@@ -28,7 +28,7 @@ class Hotel extends StatelessWidget {
         children: [
           Container(
             height: 300,
-            width: 350,
+            width: 390,
             decoration: BoxDecoration(
                 image: DecorationImage(
                     image: NetworkImage(
@@ -49,10 +49,10 @@ class Hotel extends StatelessWidget {
                 Positioned(
                     left: 30,
                     top: 270,
-                    child: Container(color: Colors.grey,
+                    child: Container(,
                       decoration:
-                          BoxDecoration(),
-                      height: 100,
+                          BoxDecoration(border: Border.all(color: Colors.grey),color: Colors.grey),
+                      
                       child: Text("8.5/10"),
                     ))
               ],
