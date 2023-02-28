@@ -1,0 +1,246 @@
+import 'package:carousel_slider/carousel_slider.dart';
+import 'package:device_preview/device_preview.dart';
+import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(
+    DevicePreview(
+      enabled: !kReleaseMode,
+      builder: (context) => MaterialApp(
+        debugShowCheckedModeBanner: false,
+        home: Fresh(),
+        theme: ThemeData(
+            colorScheme:
+                ColorScheme.fromSwatch().copyWith(primary: Color(0xff128C7E))),
+        useInheritedMediaQuery: true,
+        locale: DevicePreview.locale(context),
+        builder: DevicePreview.appBuilder,
+      ),
+    ),
+  );
+}
+
+class Fresh extends StatelessWidget {
+  var items = [
+    "VEGETABLE",
+    "FRUITS",
+    "EXOTIC",
+    "FRESH CUTS",
+  ];
+  var item2 = [
+    "Vegetables",
+    "Fruits",
+    "Exotic",
+    "Fresh Cuts",
+    "Nutrition Chargers",
+    "Packed Flours"
+  ];
+
+  var img = [
+    "https://images.unsplash.com/photo-1573246123716-6b1782bfc499?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTV8fGZydWl0c3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
+    "https://media.istockphoto.com/id/1098289506/photo/organic-farmer-stock-image.jpg?s=612x612&w=0&k=20&c=-nW8M4fNOBcIkMNfn7RtDYTVuhDxUypnr6WMoV1xDiw="
+  ];
+  var img2 = [
+    "https://media.istockphoto.com/id/606211940/photo/fresh-vegetables-in-rajasthan-india-market.jpg?s=612x612&w=0&k=20&c=4baeg4ku3OTOVknFd6XavIGGP7NUHnvObwaOWZ6MsFQ=",
+    "https://media.istockphoto.com/id/529664572/photo/fruit-background.jpg?s=612x612&w=0&k=20&c=K7V0rVCGj8tvluXDqxJgu0AdMKF8axP0A15P-8Ksh3I=",
+    "https://media.istockphoto.com/id/1171885728/photo/fruit-salad-served-in-half-pineapple-on-a-wooden-table-natural-eating-concept-diet-healthy.jpg?s=612x612&w=0&k=20&c=sflbDkAA6dewgoBUY7UD3rKR76dA02u-sbHpiGOsAzY=",
+    "https://media.istockphoto.com/id/480391926/photo/chopping-food-ingredients.jpg?s=612x612&w=0&k=20&c=gNaK4pSwkZIW1h4BKQEuGhXRJgbjbdtgmlFF_Bu4uYI=",
+    "https://media.istockphoto.com/id/1213016352/photo/healthy-food-diagram.jpg?s=612x612&w=0&k=20&c=sugz1d-jGE7gxm4DSrU--lX0OSVvnoc04JyEyYvrPlY=",
+    "https://media.istockphoto.com/id/1077555204/photo/spices-and-kitchen-herbs-in-the-store.jpg?s=612x612&w=0&k=20&c=PcAT7aF9rQtiVw9GtjCAU066SD0dTWCmtVdRyz9zGuE="
+  ];
+
+  get index => null;
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      bottomNavigationBar: BottomNavigationBar(
+        type: BottomNavigationBarType.fixed,
+        currentIndex: index,
+        onTap: (taped_index) {
+          setState(() {
+            index = taped_index;
+          });
+        },
+        items: [
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: "home"),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.account_box_sharp), label: 'Account'),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.search_rounded), label: "menu"),
+        ],
+      ),
+      body: CustomScrollView(
+        slivers: [
+          SliverAppBar(
+            centerTitle: false,
+            floating: true,
+            pinned: true,
+            title: Text("Framers Fresh Zone"),
+            actions: [
+              Row(
+                children: [
+                  Icon(Icons.location_pin),
+                  Padding(
+                    padding: const EdgeInsets.only(
+                      right: 5,
+                      left: 5,
+                    ),
+                    child: Text("Kochi"),
+                  ),
+                  Icon(Icons.keyboard_arrow_down_rounded),
+                ],
+              )
+            ],
+            bottom: AppBar(
+                title: SizedBox(
+              height: 35,
+              child: Container(
+                child: TextField(
+                    decoration: InputDecoration(
+                        hintText: "Search here",
+                        prefixIcon: Icon(Icons.search))),
+                color: Colors.white,
+              ),
+            )),
+          ),
+          SliverList(
+            delegate: SliverChildListDelegate([
+              SizedBox(
+                height: 10,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: List.generate(4, (index) {
+                  return Container(
+                    decoration: BoxDecoration(
+                        color: Colors.green[100],
+                        border: Border.all(
+                          color: Colors.green,
+                        ),
+                        borderRadius: BorderRadius.circular(40)),
+                    width: 90,
+                    height: 25,
+                    child: Center(
+                      child: Text(
+                        items[index],
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, color: Colors.green),
+                      ),
+                    ),
+                  );
+                }),
+              )
+            ]),
+          ),
+          SliverList(
+              delegate: SliverChildListDelegate([
+            CarouselSlider.builder(
+                itemCount: 2,
+                itemBuilder: (BuildContext, index, realindex) {
+                  return Container(
+                    child: Image(
+                      image: NetworkImage(img[index]),
+                    ),
+                  );
+                },
+                options: CarouselOptions(
+                  // height: 300,
+                  aspectRatio: 16 / 9,
+                  viewportFraction: 0.8,
+                  initialPage: 0,
+                  enableInfiniteScroll: true,
+                  reverse: false,
+                  autoPlay: true,
+                  autoPlayInterval: const Duration(seconds: 3),
+                  autoPlayAnimationDuration: const Duration(milliseconds: 800),
+                  autoPlayCurve: Curves.fastOutSlowIn,
+                  enlargeCenterPage: true,
+                  enlargeFactor: 1,
+                  //onPageChanged: callbackFunction,
+                  scrollDirection: Axis.vertical,
+                ))
+          ])),
+          SliverList(
+              delegate: SliverChildListDelegate([
+            Card(
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Container(
+                    child: Column(
+                      children: [
+                        Icon(Icons.timer),
+                        Text("30 MINS POLICY"),
+                      ],
+                    ),
+                  ),
+                  Container(
+                    child: Column(
+                      children: [
+                        Icon(Icons.phone_android_rounded),
+                        Text("TRACEABLITY")
+                      ],
+                    ),
+                  ),
+                  Container(
+                    child: Column(
+                      children: [Icon(Icons.man), Text("LOCAL SOURCING")],
+                    ),
+                  )
+                ],
+              ),
+            )
+          ])),
+          SliverList(
+              delegate: SliverChildListDelegate([
+            Container(
+              height: 30,
+              child: Text(
+                "Shop By Category",
+                style: TextStyle(fontWeight: FontWeight.w100, fontSize: 20),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(bottom: 100),
+              child: Container(
+                height: 300,
+                child: GridView.custom(
+                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 3,
+                    ),
+                    childrenDelegate:
+                        SliverChildBuilderDelegate((context, index) {
+                      return Padding(
+                        padding: const EdgeInsets.only(),
+                        child: Container(
+                          height: 300,
+                          child: Card(
+                            child: Column(
+                              children: [
+                                Container(
+                                  child:
+                                      Image(image: NetworkImage(img2[index])),
+                                ),
+                                Text(
+                                  item2[index],
+                                  style: TextStyle(
+                                      fontSize: 15,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      );
+                    }, childCount: img2.length)),
+              ),
+            )
+          ]))
+        ],
+      ),
+    );
+  }
+}
+
