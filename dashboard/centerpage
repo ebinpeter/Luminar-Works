@@ -1,0 +1,80 @@
+import 'package:flutter/material.dart';
+
+class Mydash extends StatefulWidget {
+  const Mydash({super.key});
+
+  @override
+  State<Mydash> createState() => _MydashState();
+}
+
+class _MydashState extends State<Mydash> {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: double.infinity,
+      decoration: BoxDecoration(
+        color: Color.fromARGB(255, 47, 46, 48),
+        borderRadius: BorderRadius.circular(20),
+      ),
+      child: Column(children: [
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            Container(
+              color: Colors.amber,
+              height: 100,
+              width: 100,
+            ),
+            SizedBox(
+              width: 10,
+            ),
+            Container(
+              color: Colors.amber,
+              height: 100,
+              width: 100,
+            ),
+            SizedBox(
+              width: 10,
+            ),
+            Container(
+              color: Colors.amber,
+              height: 100,
+              width: 100,
+            )
+          ],
+        ),
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Container(
+            color: Colors.amber,
+            height: 100,
+            width: 400,
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              Container(
+                color: Colors.amber,
+                height: 100,
+                width: 100,
+              ),
+              Container(
+                color: Colors.amber,
+                height: 100,
+                width: 100,
+              ),
+              Container(
+                color: Colors.amber,
+                height: 100,
+                width: 100,
+              )
+            ],
+          ),
+        ),
+      ]),
+    );
+  }
+}
