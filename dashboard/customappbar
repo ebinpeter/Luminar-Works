@@ -1,0 +1,42 @@
+import 'package:flutter/material.dart';
+
+class Customwidget extends StatefulWidget {
+  const Customwidget({super.key});
+
+  @override
+  State<Customwidget> createState() => _CustomwidgetState();
+}
+
+class _CustomwidgetState extends State<Customwidget> {
+  @override
+  Widget build(BuildContext context) {
+    return ListView(
+      children: [
+        Expanded(
+          child: Container(
+            color: Colors.transparent,
+            child: Row(children: [
+              Image.asset("asset/Group 1.png"),
+              Spacer(),
+              Text(
+                "Overall Status ",
+                style: TextStyle(color: Colors.white, fontSize: 20),
+              ),
+              Spacer(),
+              CircleAvatar(
+                backgroundImage: NetworkImage(""),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                  "Ebin peter",
+                  style: TextStyle(color: Colors.white),
+                ),
+              )
+            ]),
+          ),
+        ),
+      ],
+    );
+  }
+}
