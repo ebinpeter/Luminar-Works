@@ -1,0 +1,32 @@
+import 'package:flutter/material.dart';
+
+class Myleftpanel extends StatefulWidget {
+  const Myleftpanel({super.key});
+
+  @override
+  State<Myleftpanel> createState() => _MyleftpanelState();
+}
+
+class _MyleftpanelState extends State<Myleftpanel> {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+        height: double.infinity,
+        decoration: BoxDecoration(
+            color: Color.fromARGB(255, 47, 46, 48),
+            borderRadius: BorderRadius.circular(20)),
+        child: ListView(
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(top: 100),
+              child: Container(
+                child: Text(""),
+                height: 150,
+                width: 50,
+                decoration: BoxDecoration(color: Colors.white),
+              ),
+            ),
+          ],
+        ));
+  }
+}
