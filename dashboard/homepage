@@ -1,0 +1,45 @@
+import 'package:dashboard/dasshboard/dreweer.dart';
+import 'package:flutter/material.dart';
+import 'centerpage.dart';
+import 'customappbar.dart';
+import 'leftpage.dart';
+
+class Dashome extends StatefulWidget {
+  const Dashome({super.key});
+
+  @override
+  State<Dashome> createState() => _DashomeState();
+}
+
+class _DashomeState extends State<Dashome> {
+  @override
+  Widget build(BuildContext context) {
+    return const Scaffold(
+      backgroundColor: Colors.black,
+      appBar: PreferredSize(
+          child: Customwidget(), preferredSize: Size(double.infinity, 100)),
+      body: Row(
+        children: [
+          Expanded(
+              flex: 2,
+              child: Padding(
+                padding: EdgeInsets.all(8.0),
+                child: Mydrwer(),
+              )),
+          Expanded(
+              flex: 4,
+              child: Padding(
+                padding: EdgeInsets.all(8.0),
+                child: Mydash(),
+              )),
+          Expanded(
+              flex: 2,
+              child: Padding(
+                padding: EdgeInsets.all(8.0),
+                child: Myleftpanel(),
+              ))
+        ],
+      ),
+    );
+  }
+}
