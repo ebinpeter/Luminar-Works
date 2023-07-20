@@ -1,0 +1,13 @@
+List<Map<String, dynamic>> info = [
+  {
+    "id": 1,
+    "dra": "Overall Status",
+    "Mainone": "Dashbord",
+    "plyerdetail": "ebin"
+  },
+  {"id": 2, "dra": "Plyer Data", "plyerdetail": "peter", "Mainone": ""},
+  {"id": 3, "dra": "Enabled/Disnable", "plyerdetail": "joseph", "Mainone": ""},
+  {"id": 4, "dra": "Notification", "plyerdetail": "welcome", "Mainone": ""},
+  {"id": 5, "dra": "Leaderboard", "plyerdetail": "palyerwho", "Mainone": ""},
+  {"id": 6, "dra": "Settings", "plyerdetail": "Unkown", "Mainone": ""}
+];
